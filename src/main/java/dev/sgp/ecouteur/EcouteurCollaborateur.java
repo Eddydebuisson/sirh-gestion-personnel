@@ -5,11 +5,13 @@ import java.time.ZonedDateTime;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
 import dev.sgp.util.Constantes;
 
+@WebListener
 public class EcouteurCollaborateur implements ServletContextListener {
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	@Override

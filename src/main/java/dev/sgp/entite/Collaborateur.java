@@ -10,10 +10,13 @@ public class Collaborateur {
 	private String prenom;
 	private LocalDate dateDeNaissance;
 	private String adresse;
-	private String NumSecuriteSocial;
+	private String numSecuriteSocial;
 	private String photo;
 	private ZonedDateTime dateHeureCreation;
 	private Boolean actif;
+	private String email;
+	private String departement;
+	private String poste;
 
 	public Collaborateur(String nom, String matricule, String prenom, LocalDate dateDeNaissance, String adresse,
 			String numSecuriteSocial, String photo, ZonedDateTime dateHeureCreation, Boolean actif) {
@@ -23,7 +26,7 @@ public class Collaborateur {
 		this.prenom = prenom;
 		this.dateDeNaissance = dateDeNaissance;
 		this.adresse = adresse;
-		NumSecuriteSocial = numSecuriteSocial;
+		numSecuriteSocial = numSecuriteSocial;
 		this.photo = photo;
 		this.dateHeureCreation = dateHeureCreation;
 		this.actif = actif;
@@ -50,7 +53,7 @@ public class Collaborateur {
 	}
 
 	public String getNumSecuriteSocial() {
-		return NumSecuriteSocial;
+		return numSecuriteSocial;
 	}
 
 	public String getPhoto() {
