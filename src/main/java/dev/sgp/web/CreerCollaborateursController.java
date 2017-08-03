@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
-import dev.sgp.util.Constantes;
 
 @WebServlet("/collaborateurs/creer")
 public class CreerCollaborateursController extends HttpServlet {
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	@Inject
+	private CollaborateurService collaborateurService;
 
 
 	@Override
@@ -51,7 +52,7 @@ public class CreerCollaborateursController extends HttpServlet {
 				photo,
 				avecDate, true);
 		
-		collabService.sauvegarderCollaborateur(collab);
+		collaborateurService.sauvegarderCollaborateur(collab);
 		
 		resp.sendRedirect("/sgp/collaborateurs/lister");
 		
