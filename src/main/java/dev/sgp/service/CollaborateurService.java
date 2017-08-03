@@ -3,28 +3,38 @@ package dev.sgp.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import dev.sgp.entite.CollabEvt;
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.TypeCollabEvt;
 
-@ApplicationScoped
+@Stateless
 public class CollaborateurService {
-	List<Collaborateur> listeCollaborateurs = new ArrayList<>();
 
+	@PersistenceContext
+	private EntityManager em;
 	@Inject
 	Event<CollabEvt> collabEvt;
 
 	public List<Collaborateur> listerCollaborateurs() {
-		return listeCollaborateurs;
+
+		List<Collaborateur> listeCollaborateur = new ArrayList<>();
+		TypedQuery<Collaborateur> query = em.createQuery("select v from Collaborateur v ", Collaborateur.class);
+		listeCollaborateur = query.getResultList();
+
+		return listeCollaborateur;
 	}
 
 	public void sauvegarderCollaborateur(Collaborateur collab) {
-		listeCollaborateurs.add(collab);
+		em.persist(collab);
 		collabEvt.fire(
 				new CollabEvt(collab.getDateHeureCreation(), TypeCollabEvt.CREATION_COLLAB, collab.getMatricule()));
+
 	}
 }

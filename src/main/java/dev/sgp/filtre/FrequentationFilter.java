@@ -35,7 +35,7 @@ public class FrequentationFilter implements Filter {
 		long after = System.currentTimeMillis();
 		String path = ((HttpServletRequest) request).getRequestURI();
 		long temp = after - before;
-		stat.sauvegardeStat(new VisiteWeb(1, path, (int) temp));
+		stat.sauvegardeStat(new VisiteWeb(path, (int) temp));
 
 	}
 

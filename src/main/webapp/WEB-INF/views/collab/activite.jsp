@@ -22,7 +22,7 @@
 		<c:set var="listeActivite" scope="session" value="${param.listeActivite}" />
 	<c:forEach var="activite" items="${listeActivite}" >
 		<tr>
-		<th>${activite.dateHeure}</th>
+		<th>${activite.dateHeure.getDayOfMonth()}/${activite.dateHeure.getMonthValue()}/${activite.dateHeure.getYear()}  ${activite.dateHeure.getHour()}:${activite.dateHeure.getMinute()}:${activite.dateHeure.getSecond()} </th>
 		<th>${activite.type.getValue()} - matricule : ${activite.matricule} </th>
 		</tr>
 		</c:forEach>

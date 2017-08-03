@@ -3,8 +3,19 @@ package dev.sgp.entite;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "collaborateur")
 public class Collaborateur {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String nom;
 	private String matricule;
 	private String prenom;
@@ -18,6 +29,9 @@ public class Collaborateur {
 	private String departement;
 	private String poste;
 
+	public Collaborateur() {
+	}
+
 	public Collaborateur(String nom, String matricule, String prenom, LocalDate dateDeNaissance, String adresse,
 			String numSecuriteSocial, String photo, ZonedDateTime dateHeureCreation, Boolean actif) {
 		super();
@@ -26,7 +40,7 @@ public class Collaborateur {
 		this.prenom = prenom;
 		this.dateDeNaissance = dateDeNaissance;
 		this.adresse = adresse;
-		numSecuriteSocial = numSecuriteSocial;
+		this.numSecuriteSocial = numSecuriteSocial;
 		this.photo = photo;
 		this.dateHeureCreation = dateHeureCreation;
 		this.actif = actif;

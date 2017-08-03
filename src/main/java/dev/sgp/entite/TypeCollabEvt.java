@@ -2,6 +2,7 @@ package dev.sgp.entite;
 
 import javax.persistence.Enumerated;
 
+
 public enum TypeCollabEvt {
 
 	CREATION_COLLAB("Création d'un nouveau collaborateur"), MODIFICATION_COLLAB("Modification d'un Collaborateur");

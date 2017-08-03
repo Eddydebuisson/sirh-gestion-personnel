@@ -23,7 +23,7 @@
 		<c:set var="listeStat" scope="session" value="${param.listeStat}" />
 		<c:forEach var="stat" items="${listeStat}" >
 		<tr>
-		<th>${stat.key}</th>
+		<th>${stat.key}</th>	
 		<th>${stat.value.getCount()}</th>
 		<th>${stat.value.getMin()}</th>
 		<th>${stat.value.getMax()}</th>
