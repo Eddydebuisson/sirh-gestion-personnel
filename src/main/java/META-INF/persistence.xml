@@ -9,6 +9,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 <class>dev.sgp.entite.Departement</class>
 <class>dev.sgp.entite.CollabEvt</class>
 <class>dev.sgp.entite.VisiteWeb</class>
+<class>dev.sgp.entite.Bancaire</class>
 
 <properties>
 <property name="javax.persistence.schema-generation.database.action"

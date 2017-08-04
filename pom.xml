@@ -43,6 +43,13 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>2.9.0.pr4</version>
+			<scope>compile</scope>
+		</dependency>
+		
 		
 	</dependencies>
 

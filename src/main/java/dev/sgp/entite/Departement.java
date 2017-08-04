@@ -1,8 +1,6 @@
 package dev.sgp.entite;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,12 +9,12 @@ import javax.persistence.Table;
 public class Departement {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 
 	public Departement() {
 	}
+
 	public Departement(Integer id, String nom) {
 		super();
 		this.id = id;

@@ -14,9 +14,8 @@ import dev.sgp.entite.Departement;
 public class DepartementService {
 	@PersistenceContext
 	private EntityManager em;
-	List<Departement> listeDepartement = new ArrayList<>();
 
-	public List<Departement> listerCollaborateurs() {
+	public List<Departement> listerDepartement() {
 		List<Departement> listeDepartement = new ArrayList<>();
 		TypedQuery<Departement> query = em.createQuery("select d from Departement d ", Departement.class);
 		listeDepartement = query.getResultList();
@@ -24,7 +23,7 @@ public class DepartementService {
 		return listeDepartement;
 	}
 
-	public void sauvegarderCollaborateur(Departement deb) {
+	public void sauvegarderDepartement(Departement deb) {
 		em.persist(deb);
 	}
 
