@@ -1,6 +1,8 @@
 package dev.sgp.entite;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,9 +10,11 @@ import javax.persistence.Table;
 @Table(name = "banque")
 public class Bancaire {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String banque;
 	private String bic;
-	@Id
 	private String iban;
 
 	public Bancaire(String banque, String bic, String iban) {

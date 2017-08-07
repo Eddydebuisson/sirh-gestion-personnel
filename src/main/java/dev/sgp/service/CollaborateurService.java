@@ -77,8 +77,13 @@ public class CollaborateurService {
 		TypedQuery<Collaborateur> query = em.createNamedQuery("Collaborateur.findByMatricule", Collaborateur.class)
 				.setParameter("mat", matricule);
 		Collaborateur col = query.getSingleResult();
-		col.setBanque(ban);
-		em.merge(col);
+		Bancaire banMerge = col.getBanque();
+		banMerge.setBanque(ban.getBanque());
+		banMerge.setBic(ban.getBic());
+		banMerge.setIban(ban.getIban());
+		em.merge(banMerge);
+		// col.setBanque(ban);
+		// em.merge(col);
 	}
 
 }
